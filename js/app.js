@@ -8,7 +8,7 @@ const cursos = [
     "batería",
     "guitarra eléctrica",
     "guitarra acústica",
-    "violín"
+    "violín",
 ];
 
 // Precio base de curso
@@ -19,7 +19,7 @@ const DESCUENTO = 10;
 
 // ====== FUNCIONES PRINCIPALES ======
 
-  returns {string} 
+  return {string} 
  
 function solicitarCurso() {
     let mensajeCursos = "Clases disponibles:\n";
@@ -30,16 +30,22 @@ function solicitarCurso() {
     return prompt(mensajeCursos + "\nPor favor, elige una clase:").toLowerCase();
 }
 
-   param {string} cursoElegido 
-   returns {boolean} 
+/**
+ * Valida si el curso elegido por el usuario existe en el array de cursos.
+ * @param {string} cursoElegido - El curso ingresado por el usuario.
+ * @returns {boolean} - true si el curso existe, false en caso contrario.
+ */
  
 function validarCurso(cursoElegido) {
    
     return cursos.includes(cursoElegido);
 }
 
-   param {boolean} aplicaDescuento 
-   returns {number} 
+/**
+ * Calcula el costo total de la inscripción, aplicando un descuento si el usuario lo confirma.
+ * @param {boolean} aplicaDescuento - Indica si se debe aplicar el descuento.
+ * @returns {number} - El costo final de la inscripción.
+ */
  
 function calcularCosto(aplicaDescuento) {
     if (aplicaDescuento) {
@@ -49,10 +55,12 @@ function calcularCosto(aplicaDescuento) {
     return PRECIO_BASE;
 }
 
-  Resumen de la inscripción al usuario.
-   param {string} nombreUsuario
-   param {string} cursoInscrito
-   param {number} costoFinal
+/**
+ * Muestra un resumen de la inscripción al usuario.
+ * @param {string} nombreUsuario - El nombre del usuario.
+ * @param {string} cursoInscrito - El nombre del curso en el que se inscribe.
+ * @param {number} costoFinal - El costo total de la inscripción.
+ */
   
 function mostrarResumen(nombreUsuario, cursoInscrito, costoFinal) {
     const mensaje = `
