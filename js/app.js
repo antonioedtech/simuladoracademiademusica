@@ -19,7 +19,7 @@ const DESCUENTO = 10;
 
 // ====== FUNCIONES PRINCIPALES ======
 
-  @returns {string} 
+  returns {string} 
  
 function solicitarCurso() {
     let mensajeCursos = "Clases disponibles:\n";
@@ -30,16 +30,16 @@ function solicitarCurso() {
     return prompt(mensajeCursos + "\nPor favor, elige una clase:").toLowerCase();
 }
 
-  @param {string} cursoElegido 
-  @returns {boolean} 
+   param {string} cursoElegido 
+   returns {boolean} 
  
 function validarCurso(cursoElegido) {
    
     return cursos.includes(cursoElegido);
 }
 
-  @param {boolean} aplicaDescuento 
-  @returns {number} 
+   param {boolean} aplicaDescuento 
+   returns {number} 
  
 function calcularCosto(aplicaDescuento) {
     if (aplicaDescuento) {
@@ -50,9 +50,9 @@ function calcularCosto(aplicaDescuento) {
 }
 
   Resumen de la inscripción al usuario.
-  @param {string} nombreUsuario
-  @param {string} cursoInscrito
-  @param {number} costoFinal
+   param {string} nombreUsuario
+   param {string} cursoInscrito
+   param {number} costoFinal
   
 function mostrarResumen(nombreUsuario, cursoInscrito, costoFinal) {
     const mensaje = `
