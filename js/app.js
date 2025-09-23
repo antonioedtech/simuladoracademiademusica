@@ -18,8 +18,6 @@ const PRECIO_BASE = 5000;
 const DESCUENTO = 10;
 
 // ====== FUNCIONES PRINCIPALES ======
-
-  return {string} 
  
 function solicitarCurso() {
     let mensajeCursos = "Clases disponibles:\n";
@@ -43,12 +41,12 @@ function validarCurso(cursoElegido) {
 
 /**
  * Calcula el costo total de la inscripción, aplicando un descuento si el usuario lo confirma.
- * @param {boolean} aplicaDescuento - Indica si se debe aplicar el descuento.
+ * @param {boolean} principianteDescuento - Indica si se debe aplicar el descuento.
  * @returns {number} - El costo final de la inscripción.
  */
  
-function calcularCosto(aplicaDescuento) {
-    if (aplicaDescuento) {
+function calcularCosto(principianteDescuento) {
+    if (principianteDescuento) {
         // descuento del 10%
         return PRECIO_BASE - (PRECIO_BASE * (DESCUENTO / 100));
     }
@@ -92,9 +90,9 @@ function iniciarSimulador() {
 
             if (validarCurso(cursoElegido)) {
                 
-                const quiereDescuento = confirm("¿Quieres un 10% de descuento por ser estudiante del bootcamp?");
+                const principianteDescuento = confirm("¿Eres principiante?");
                 
-                const costoFinal = calcularCosto(quiereDescuento);
+                const costoFinal = calcularCosto(principianteDescuento);
                 
                 mostrarResumen(nombreUsuario, cursoElegido, costoFinal);
 
