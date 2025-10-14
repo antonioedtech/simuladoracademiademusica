@@ -1,83 +1,122 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f4f8; 
     color: #333;
     line-height: 1.6;
     margin: 0;
     padding: 0;
+    min-height: 100vh;
 }
 
 .header {
-    background-color: #333;
+    background-color: #2c3e50; 
     color: white;
-    padding: 20px 0;
+    padding: 30px 0;
     text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2.2em;
 }
 
 .container {
     width: 90%;
-    max-width: 800px;
-    margin: 30px auto;
+    max-width: 700px; 
+    margin: 40px auto; 
+    
     background: white;
-    padding: 20px 40px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    border-radius: 8px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); 
 }
 
-/* Formularios y Botones */
+/* SECCIONES DISTINTIVAS (Entrada y Salida)  */
+
+section {
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    border: 1px solid #e0e6ed; 
+    background-color: #ffffff;
+}
+
+#seccion-inscripcion {
+    background-color: #f7f9fb; 
+    border-left: 5px solid #3498db; 
+}
+
+
+#seccion-resumen {
+    background-color: #ecf0f1;
+    border-left: 5px solid #27ae60; 
+}
+
+
+/*  FORMULARIO Y CONTROLES   */
+
 .input-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .input-group label {
     display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+    margin-bottom: 8px;
+    font-weight: 600; 
+    color: #2c3e50;
 }
 
 .input-group input[type="text"],
 .input-group select {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box; 
+    padding: 12px;
+    border: 1px solid #bdc3c7;
+    border-radius: 6px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.input-group input[type="text"]:focus,
+.input-group select:focus {
+    border-color: #3498db;
+    outline: none; 
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
 }
 
 button {
-    background-color: #007bff;
+    background-color: #e74c3c; 
     color: white;
     border: none;
-    padding: 10px 15px;
-    border-radius: 4px;
+    padding: 12px 25px;
+    border-radius: 6px;
     cursor: pointer;
-    margin-top: 10px;
-    transition: background-color 0.3s;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.1s;
+    width: 100%; 
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #c0392b;
+    transform: translateY(-1px); 
 }
 
-/* Sección de Resumen */
+/*  RESULTADOS Y LISTAS  */
+
 .resumen-card {
-    background-color: #e6f7ff;
-    border: 1px solid #b3e0ff;
-    padding: 15px;
+    background-color: #f0fff4; 
+    border: 1px dashed #2ecc71; 
+    padding: 20px;
     border-radius: 6px;
     margin-top: 15px;
 }
 
 .costo-final strong {
-    font-size: 1.2em;
-    color: #28a745; 
+    font-size: 1.5em;
+    color: #27ae60; 
 }
 
-.resumen-oculto, .alumnos-oculto {
-    display: none; /* Oculta secciones por defecto */
-}
-
-/* Estilos de Lista */
 #lista-alumnos {
     list-style: none;
     padding: 0;
@@ -85,17 +124,23 @@ button:hover {
 
 #lista-alumnos li {
     background: #f9f9f9;
-    margin-bottom: 8px;
-    padding: 10px;
-    border-left: 5px solid #ffc107;
+    margin-bottom: 10px;
+    padding: 12px;
+    border-left: 4px solid #f39c12; 
     border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-.error-msg {
-    color: #dc3545;
-    font-weight: bold;
-    border: 1px solid #dc3545;
-    padding: 10px;
-    background-color: #f8d7da;
-    border-radius: 4px;
+
+#btn-ver-alumnos {
+    background-color: #95a5a6; 
+    margin-top: 20px;
+}
+
+#btn-ver-alumnos:hover {
+    background-color: #7f8c8d;
+}
+
+.resumen-oculto, .alumnos-oculto {
+    display: none;
 }
