@@ -1,0 +1,101 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 30px auto;
+    background: white;
+    padding: 20px 40px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+/* Formularios y Botones */
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input-group input[type="text"],
+.input-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; 
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Sección de Resumen */
+.resumen-card {
+    background-color: #e6f7ff;
+    border: 1px solid #b3e0ff;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 15px;
+}
+
+.costo-final strong {
+    font-size: 1.2em;
+    color: #28a745; 
+}
+
+.resumen-oculto, .alumnos-oculto {
+    display: none; /* Oculta secciones por defecto */
+}
+
+/* Estilos de Lista */
+#lista-alumnos {
+    list-style: none;
+    padding: 0;
+}
+
+#lista-alumnos li {
+    background: #f9f9f9;
+    margin-bottom: 8px;
+    padding: 10px;
+    border-left: 5px solid #ffc107;
+    border-radius: 4px;
+}
+
+.error-msg {
+    color: #dc3545;
+    font-weight: bold;
+    border: 1px solid #dc3545;
+    padding: 10px;
+    background-color: #f8d7da;
+    border-radius: 4px;
+}

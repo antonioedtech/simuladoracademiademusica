@@ -7,19 +7,57 @@
 </head>
 <body>
 
-    <header>
-        <h1>Bienvenido a la Academia de Música</h1>
+    <header class="header">
+        <h1>Academia de Música</h1>
+        <p>Inscripción a Clases Online</p>
     </header>
 
-    <main>
-        <section>
-            <p>
-                Este es un simulador básico para la Academia de Música. Aquí podrás consultar las clases disponibles
-                de canto, teclado, bajo, batería, guitarra eléctrica, guitarra acústica y violín.
-                El simulador te guiará a través de la selección de un curso y calculará el costo de la inscripción.
-            </p>
-        </section>
-    </main>
+       <main class="container">
+         
+           <section id="seccion-inscripcion">
+            
+               <h2>Datos del Aspirante</h2>
+                  <form id="formulario-inscripcion">
+                  
+                      <div class="input-group">
+                          <label for="nombre">Nombre Completo:</label>
+                          <input type="text" id="nombre" required>
+                      </div>
+
+                      <div class="input-group">
+                          <label for="curso">Clase deseada:</label>
+                          <select id="curso" required>
+                              <option value="">Selecciona un instrumento</option>
+                          </select>
+                      </div>
+
+                      <div class="input-group">
+                          <label>
+                              <input type="checkbox" id="aplicar-descuento">
+                              Aplicar 10% de descuento (estudiante bootcamp)
+                          </label>
+                      </div>
+
+                        <button type="submit" id="btn-inscribir">INSCRIBIRSE</button>
+
+                    </form>
+              </section> 
+               <hr>
+
+              <section id="seccion-resumen" class="resumen-oculto">
+                  <h2>✅ Resumen de tu Inscripción</h2>
+                  <div id="resultado-inscripcion" class="resumen-card">
+                      </div>   
+                  <button id="btn-ver-alumnos">Ver todos los alumnos inscritos (LocalStorage)</button>
+              </section>
+          
+              <section id="seccion-alumnos" class="alumnos-oculto">
+                  <h3>Lista de Inscritos</h3>
+                  <ul id="lista-alumnos">
+                   </ul>
+              </section>
+       
+        </main>
 
     <footer>
         <p>Simulador creado para el bootcamp de JavaScript.</p>
