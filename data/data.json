@@ -1,0 +1,9 @@
+[
+  { "id": 1, "nombre": "canto", "costo": 5000, "duracion": "3 meses" },
+  { "id": 2, "nombre": "teclado", "costo": 5000, "duracion": "3 meses" },
+  { "id": 3, "nombre": "bajo", "costo": 5000, "duracion": "3 meses" },
+  { "id": 4, "nombre": "batería", "costo": 5000, "duracion": "3 meses" },
+  { "id": 5, "nombre": "guitarra eléctrica", "costo": 5000, "duracion": "3 meses" },
+  { "id": 6, "nombre": "guitarra acústica", "costo": 5000, "duracion": "3 meses" },
+  { "id": 7, "nombre": "violín", "costo": 5000, "duracion": "3 meses" }
+]

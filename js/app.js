@@ -142,40 +142,89 @@ function guardarAlumnoEnStorage(nuevoAlumno) {
  * Maneja el evento de envío del formulario.
  * @param {Event} e - Evento de envío del formulario.
  */
-function handleInscripcion(e) {
+async function handleInscripcion(e) {
     e.preventDefault(); // Detiene el comportamiento por defecto (recargar la página)
 
     // Lectura de datos del formulario
     const nombre = document.getElementById('nombre').value.trim();
     const curso = document.getElementById('curso').value;
-    const aplicaDescuento = document.getElementById('aplicar-descuento').checked;
+    let aplicaDescuento = document.getElementById('aplicar-descuento').checked;
 
     // Validación simple 
     if (!nombre || !curso) {
-        // Se usa el DOM para un mensaje de error
-        resultadoDiv.innerHTML = '<p class="error-msg">Por favor, completa todos los campos requeridos.</p>';
-        seccionResumen.classList.remove('resumen-oculto');
-        return;
+        // Usa Swal.fire para mensaje de error
+        Swal.fire({
+            icon: 'error',
+            title: 'Campos Incompletos',
+            text: 'Por favor, completa tu Nombre y selecciona una Clase.',
+            confirmButtonColor: '#e74c3c'
+        });
+        return; // Detiene la ejecución
+    }
+
+    // Confirmar el descuento con un modal de SweetAlert2:
+    let descuentoConfirmado = aplicaDescuento;
+    if (aplicaDescuento) {
+        const { isConfirmed } = await Swal.fire({
+            title: 'Confirmar Descuento',
+            text: "¿Quieres aplicar el 10% de descuento?",
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'Sí, aplicar',
+            cancelButtonText: 'No, retirar',
+            confirmButtonColor: '#27ae60'
+        });
+        descuentoConfirmado = isConfirmed;
     }
 
     // Procesamiento
-    const costoFinal = calcularCosto(curso, aplicaDescuento);
+    const costoFinal = calcularCosto(curso, descuentoConfirmado);
 
     // Creación del objeto y LocalStorage
-    const nuevoAlumno = new Alumno(nombre, curso, costoFinal, aplicaDescuento);
+    const nuevoAlumno = new Alumno(nombre, curso, costoFinal, descuentoConfirmado);
     guardarAlumnoEnStorage(nuevoAlumno); // Guarda el alumno
 
     // Salida (Modificación del DOM)
     mostrarResumenDOM(nuevoAlumno);
+
+    // Notificación de inscrito
+    Swal.fire({
+        icon: 'success',
+        title: '¡Inscripción Exitosa!',
+        html: `¡Felicidades, **${nombre}**! Te has inscrito en **${curso.toUpperCase()}**.`,
+        timer: 4000, // Se cierra en 4 segundos
+        timerProgressBar: true,
+        showConfirmButton: false
+    });
+
     formInscripcion.reset(); // Limpia el formulario después de la inscripción
 }
 
 /**
  * Inicializa la aplicación, carga datos y configura eventos.
  */
-function init() {
-    // Carga inicial del DOM
-    cargarCursosEnDOM();
+async function cargarDatosRemotos() {
+    try {
+        const response = await fetch('./data/data.json');
+        const dataCursos = await response.json();
+        // Sobreescribe tu constante CURSOS con los datos remotos
+        return dataCursos; 
+    } catch (error) {
+        // Notificación de error si la carga de datos falla
+        Swal.fire({
+            icon: 'error',
+            title: 'Error de Carga',
+            text: 'No se pudieron cargar los cursos. Verifica el archivo data.json.',
+            confirmButtonColor: '#e74c3c'
+        });
+        return [];
+    }
+}
+
+async function init() {
+    // Carga asincrónica de datos
+    const cursos = await cargarDatosRemotos();
+    cargarCursosEnDOM(cursos);
 
     // Eventos (Homogéneo y centralizado)
     formInscripcion.addEventListener('submit', handleInscripcion);
